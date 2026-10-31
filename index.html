@@ -1,0 +1,1581 @@
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Pondok Pesantren Al Barokah Merapi</title>
+
+<meta name="description"
+content="Website resmi Pondok Pesantren Al Barokah Merapi">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+:root{
+    --primary:#173f35;
+    --secondary:#c9a646;
+    --dark:#102b25;
+    --light:#f6f8f5;
+    --white:#ffffff;
+    --text:#26332f;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:var(--light);
+    color:var(--text);
+    overflow-x:hidden;
+}
+
+/* ================= NAVBAR ================= */
+
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:999;
+    padding:18px 7%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    transition:.4s;
+}
+
+nav.scrolled{
+    background:rgba(255,255,255,.96);
+    box-shadow:0 5px 25px rgba(0,0,0,.08);
+    padding:13px 7%;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    color:white;
+    text-decoration:none;
+}
+
+nav.scrolled .logo{
+    color:var(--primary);
+}
+
+.logo-icon{
+    width:43px;
+    height:43px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#d9bd64,#a88728);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:21px;
+}
+
+.logo-text strong{
+    display:block;
+    font-size:17px;
+}
+
+.logo-text small{
+    font-size:11px;
+    opacity:.8;
+}
+
+.nav-links{
+    display:flex;
+    gap:28px;
+    list-style:none;
+}
+
+.nav-links a{
+    color:white;
+    text-decoration:none;
+    font-size:14px;
+    font-weight:bold;
+    transition:.3s;
+}
+
+nav.scrolled .nav-links a{
+    color:var(--dark);
+}
+
+.nav-links a:hover{
+    color:var(--secondary);
+}
+
+.menu{
+    display:none;
+    color:white;
+    font-size:28px;
+    cursor:pointer;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    min-height:100vh;
+    position:relative;
+    display:flex;
+    align-items:center;
+    padding:120px 7% 70px;
+    color:white;
+    background:
+    linear-gradient(120deg,rgba(10,38,31,.96),rgba(23,63,53,.76)),
+    radial-gradient(circle at 80% 20%,#597e70,transparent 35%);
+    overflow:hidden;
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    width:500px;
+    height:500px;
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:50%;
+    right:-160px;
+    top:-120px;
+}
+
+.hero::after{
+    content:"";
+    position:absolute;
+    width:300px;
+    height:300px;
+    border:1px solid rgba(201,166,70,.2);
+    border-radius:50%;
+    right:50px;
+    bottom:-150px;
+}
+
+.hero-content{
+    max-width:760px;
+    position:relative;
+    z-index:2;
+    animation:fadeUp 1s ease;
+}
+
+.badge{
+    display:inline-block;
+    padding:9px 16px;
+    border:1px solid rgba(255,255,255,.25);
+    border-radius:30px;
+    background:rgba(255,255,255,.08);
+    margin-bottom:25px;
+    font-size:13px;
+}
+
+.hero h1{
+    font-size:clamp(42px,7vw,78px);
+    line-height:1.02;
+    margin-bottom:25px;
+}
+
+.hero h1 span{
+    color:#e3c766;
+}
+
+.hero p{
+    max-width:650px;
+    line-height:1.8;
+    color:#dbe7e2;
+    margin-bottom:32px;
+    font-size:17px;
+}
+
+.buttons{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:14px 23px;
+    border-radius:10px;
+    text-decoration:none;
+    font-weight:bold;
+    transition:.3s;
+    display:inline-block;
+}
+
+.btn-primary{
+    background:#d1ad4d;
+    color:#162b25;
+}
+
+.btn-primary:hover{
+    transform:translateY(-4px);
+    box-shadow:0 12px 25px rgba(209,173,77,.25);
+}
+
+.btn-outline{
+    border:1px solid rgba(255,255,255,.35);
+    color:white;
+}
+
+.btn-outline:hover{
+    background:white;
+    color:var(--primary);
+}
+
+/* ================= STATS ================= */
+
+.stats{
+    background:white;
+    width:86%;
+    margin:-55px auto 0;
+    position:relative;
+    z-index:5;
+    border-radius:18px;
+    box-shadow:0 15px 50px rgba(0,0,0,.08);
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    overflow:hidden;
+}
+
+.stat{
+    padding:30px;
+    text-align:center;
+    border-right:1px solid #eee;
+}
+
+.stat:last-child{
+    border:none;
+}
+
+.stat h2{
+    color:var(--primary);
+    font-size:32px;
+}
+
+.stat p{
+    margin-top:7px;
+    font-size:13px;
+    color:#777;
+}
+
+/* ================= SECTION ================= */
+
+section{
+    padding:100px 7%;
+}
+
+.section-head{
+    text-align:center;
+    max-width:700px;
+    margin:0 auto 55px;
+}
+
+.section-head span{
+    color:#b38b29;
+    font-size:13px;
+    font-weight:bold;
+    letter-spacing:2px;
+    text-transform:uppercase;
+}
+
+.section-head h2{
+    font-size:38px;
+    margin:12px 0;
+    color:var(--dark);
+}
+
+.section-head p{
+    color:#71807b;
+    line-height:1.7;
+}
+
+/* ================= PROFIL ================= */
+
+.about{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:70px;
+    align-items:center;
+}
+
+.about-box{
+    min-height:430px;
+    border-radius:25px;
+    background:
+    linear-gradient(135deg,rgba(23,63,53,.9),rgba(16,43,37,.96));
+    position:relative;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:white;
+}
+
+.about-box::before{
+    content:"☪";
+    font-size:180px;
+    opacity:.08;
+}
+
+.about-box .year{
+    position:absolute;
+    bottom:30px;
+    left:30px;
+}
+
+.year strong{
+    font-size:45px;
+    display:block;
+    color:#d6b454;
+}
+
+.about-text h2{
+    font-size:38px;
+    margin-bottom:20px;
+    color:var(--dark);
+}
+
+.about-text p{
+    line-height:1.9;
+    color:#68756f;
+    margin-bottom:18px;
+}
+
+.check{
+    display:flex;
+    gap:10px;
+    margin:13px 0;
+    font-weight:bold;
+}
+
+.check span{
+    color:#b28c32;
+}
+
+/* ================= PROGRAM ================= */
+
+.programs{
+    background:#102f28;
+    color:white;
+}
+
+.programs .section-head h2{
+    color:white;
+}
+
+.programs .section-head p{
+    color:#b9cbc5;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+}
+
+.card{
+    background:rgba(255,255,255,.07);
+    border:1px solid rgba(255,255,255,.08);
+    padding:30px;
+    border-radius:20px;
+    transition:.35s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    background:rgba(255,255,255,.11);
+}
+
+.icon{
+    width:55px;
+    height:55px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#d0ae52;
+    color:#173f35;
+    border-radius:15px;
+    font-size:25px;
+    margin-bottom:22px;
+}
+
+.card h3{
+    margin-bottom:12px;
+}
+
+.card p{
+    color:#b7c8c2;
+    line-height:1.7;
+    font-size:14px;
+}
+
+/* ================= FASILITAS ================= */
+
+.facilities{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+}
+
+.facility{
+    background:white;
+    padding:30px 20px;
+    border-radius:18px;
+    text-align:center;
+    box-shadow:0 8px 30px rgba(0,0,0,.05);
+    transition:.3s;
+}
+
+.facility:hover{
+    transform:translateY(-6px);
+}
+
+.facility-icon{
+    font-size:38px;
+    margin-bottom:15px;
+}
+
+.facility h3{
+    font-size:16px;
+}
+
+/* ================= GALERI ================= */
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.gallery-item{
+    height:220px;
+    border-radius:18px;
+    background:
+    linear-gradient(135deg,#214d41,#80978e);
+    position:relative;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:white;
+    font-size:45px;
+    transition:.3s;
+}
+
+.gallery-item:nth-child(2){
+    background:linear-gradient(135deg,#7a6331,#d0b768);
+}
+
+.gallery-item:nth-child(3){
+    background:linear-gradient(135deg,#244c62,#8aa9b8);
+}
+
+.gallery-item:nth-child(4){
+    background:linear-gradient(135deg,#493d62,#9b8bb4);
+}
+
+.gallery-item:nth-child(5){
+    background:linear-gradient(135deg,#5b4730,#b49469);
+}
+
+.gallery-item:nth-child(6){
+    background:linear-gradient(135deg,#28594b,#82a898);
+}
+
+.gallery-item:nth-child(7){
+    background:linear-gradient(135deg,#4d3b31,#b68b70);
+}
+
+.gallery-item:nth-child(8){
+    background:linear-gradient(135deg,#283f57,#7192af);
+}
+
+.gallery-item:hover{
+    transform:scale(1.025);
+}
+
+/* ================= BERITA ================= */
+
+.news{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+}
+
+.news-card{
+    background:white;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 8px 30px rgba(0,0,0,.06);
+}
+
+.news-image{
+    height:180px;
+    background:linear-gradient(135deg,#183f35,#8ca99e);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:45px;
+}
+
+.news-content{
+    padding:24px;
+}
+
+.news-content small{
+    color:#b38b29;
+    font-weight:bold;
+}
+
+.news-content h3{
+    margin:10px 0;
+}
+
+.news-content p{
+    color:#71807b;
+    line-height:1.6;
+    font-size:14px;
+}
+
+/* ================= PENDAFTARAN ================= */
+
+.register{
+    background:
+    linear-gradient(135deg,#102f28,#183f35);
+    color:white;
+    border-radius:30px;
+    margin:0 7% 100px;
+    padding:65px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:30px;
+}
+
+.register h2{
+    font-size:40px;
+    margin-bottom:12px;
+}
+
+.register p{
+    color:#bdd0ca;
+    max-width:600px;
+    line-height:1.7;
+}
+
+/* ================= KONTAK ================= */
+
+.contact{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:50px;
+}
+
+.contact-info{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
+
+.contact-item{
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    display:flex;
+    gap:15px;
+    box-shadow:0 6px 25px rgba(0,0,0,.05);
+}
+
+.contact-item b{
+    display:block;
+    margin-bottom:5px;
+}
+
+.contact-item p{
+    color:#78837f;
+    font-size:14px;
+}
+
+.contact-form{
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 8px 30px rgba(0,0,0,.05);
+}
+
+.contact-form input,
+.contact-form textarea{
+    width:100%;
+    border:1px solid #e5e8e6;
+    padding:14px;
+    border-radius:10px;
+    margin-bottom:14px;
+    outline:none;
+    font-family:inherit;
+}
+
+.contact-form textarea{
+    min-height:130px;
+    resize:vertical;
+}
+
+.contact-form button{
+    width:100%;
+    border:none;
+    cursor:pointer;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    background:#0b211c;
+    color:#b8c9c3;
+    padding:55px 7% 25px;
+}
+
+.footer-top{
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr;
+    gap:50px;
+    padding-bottom:40px;
+}
+
+footer h3{
+    color:white;
+    margin-bottom:15px;
+}
+
+footer p{
+    line-height:1.8;
+    font-size:14px;
+}
+
+footer ul{
+    list-style:none;
+}
+
+footer li{
+    margin:10px 0;
+}
+
+footer a{
+    color:#b8c9c3;
+    text-decoration:none;
+}
+
+.footer-bottom{
+    border-top:1px solid rgba(255,255,255,.1);
+    padding-top:22px;
+    text-align:center;
+    font-size:13px;
+}
+
+/* ================= WHATSAPP ================= */
+
+.wa{
+    position:fixed;
+    right:25px;
+    bottom:25px;
+    width:58px;
+    height:58px;
+    border-radius:50%;
+    background:#20b85a;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:28px;
+    text-decoration:none;
+    z-index:1000;
+    box-shadow:0 8px 25px rgba(0,0,0,.2);
+    animation:pulse 2s infinite;
+}
+
+/* ================= ANIMATION ================= */
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes pulse{
+    0%,100%{transform:scale(1)}
+    50%{transform:scale(1.08)}
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:900px){
+
+    .nav-links{
+        position:absolute;
+        top:70px;
+        right:7%;
+        width:230px;
+        background:white;
+        padding:20px;
+        border-radius:15px;
+        display:none;
+        flex-direction:column;
+        box-shadow:0 10px 30px rgba(0,0,0,.15);
+    }
+
+    .nav-links.active{
+        display:flex;
+    }
+
+    .nav-links a,
+    nav.scrolled .nav-links a{
+        color:var(--dark);
+    }
+
+    .menu{
+        display:block;
+    }
+
+    .stats{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .stat:nth-child(2){
+        border-right:none;
+    }
+
+    .about,
+    .contact{
+        grid-template-columns:1fr;
+    }
+
+    .cards{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .facilities{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .gallery{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .news{
+        grid-template-columns:1fr;
+    }
+
+    .register{
+        flex-direction:column;
+        align-items:flex-start;
+        margin:0 5% 70px;
+        padding:45px 30px;
+    }
+
+    .footer-top{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:600px){
+
+    nav{
+        padding:15px 5%;
+    }
+
+    .hero{
+        padding-left:5%;
+        padding-right:5%;
+    }
+
+    section{
+        padding:75px 5%;
+    }
+
+    .hero h1{
+        font-size:43px;
+    }
+
+    .hero p{
+        font-size:15px;
+    }
+
+    .stats{
+        width:90%;
+    }
+
+    .stat{
+        padding:22px 10px;
+    }
+
+    .stat h2{
+        font-size:25px;
+    }
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    .facilities{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .gallery{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .gallery-item{
+        height:160px;
+    }
+
+    .register h2{
+        font-size:30px;
+    }
+
+    .section-head h2{
+        font-size:30px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<nav id="navbar">
+
+    <a href="#home" class="logo">
+
+        <div class="logo-icon">☪</div>
+
+        <div class="logo-text">
+            <strong>Al Barokah</strong>
+            <small>Merapi</small>
+        </div>
+
+    </a>
+
+    <ul class="nav-links" id="navLinks">
+
+        <li><a href="#home">Beranda</a></li>
+        <li><a href="#profil">Profil</a></li>
+        <li><a href="#program">Program</a></li>
+        <li><a href="#fasilitas">Fasilitas</a></li>
+        <li><a href="#galeri">Galeri</a></li>
+        <li><a href="#kontak">Kontak</a></li>
+
+    </ul>
+
+    <div class="menu" onclick="toggleMenu()">☰</div>
+
+</nav>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <div class="badge">
+            ✦ Membangun Generasi Qur'ani
+        </div>
+
+        <h1>
+            Pondok Pesantren
+            <span>Al Barokah Merapi</span>
+        </h1>
+
+        <p>
+            Tempat tumbuhnya generasi yang berilmu,
+            berakhlak mulia, mandiri, dan dekat dengan
+            Al-Qur'an serta Sunnah.
+        </p>
+
+        <div class="buttons">
+
+            <a href="#profil" class="btn btn-primary">
+                Jelajahi Pondok →
+            </a>
+
+            <a href="#pendaftaran" class="btn btn-outline">
+                Pendaftaran Santri
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= STATS ================= -->
+
+<div class="stats">
+
+    <div class="stat">
+        <h2>01</h2>
+        <p>Pesantren</p>
+    </div>
+
+    <div class="stat">
+        <h2>∞</h2>
+        <p>Semangat Belajar</p>
+    </div>
+
+    <div class="stat">
+        <h2>24/7</h2>
+        <p>Pembinaan</p>
+    </div>
+
+    <div class="stat">
+        <h2>100%</h2>
+        <p>Komitmen Pendidikan</p>
+    </div>
+
+</div>
+
+
+<!-- ================= PROFIL ================= -->
+
+<section id="profil">
+
+    <div class="section-head">
+
+        <span>Tentang Kami</span>
+
+        <h2>Mengenal Al Barokah Merapi</h2>
+
+        <p>
+            Pondok pesantren sebagai tempat belajar,
+            bertumbuh, dan membangun karakter generasi Islam.
+        </p>
+
+    </div>
+
+    <div class="about">
+
+        <div class="about-box">
+
+            <div class="year">
+                <small>Pesantren</small>
+                <strong>Al Barokah</strong>
+                <small>Merapi</small>
+            </div>
+
+        </div>
+
+        <div class="about-text">
+
+            <h2>Mendidik dengan Ilmu & Akhlak</h2>
+
+            <p>
+                Pondok Pesantren Al Barokah Merapi hadir sebagai
+                lingkungan pendidikan Islam yang mengutamakan
+                ilmu, akhlak, kedisiplinan, dan kemandirian santri.
+            </p>
+
+            <p>
+                Kami berusaha menciptakan lingkungan belajar yang
+                nyaman agar setiap santri dapat mengembangkan
+                potensi dirinya dan mempersiapkan masa depan.
+            </p>
+
+            <div class="check">
+                <span>✓</span> Pendidikan berbasis nilai Islam
+            </div>
+
+            <div class="check">
+                <span>✓</span> Pembinaan karakter dan akhlak
+            </div>
+
+            <div class="check">
+                <span>✓</span> Lingkungan belajar yang nyaman
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= PROGRAM ================= -->
+
+<section class="programs" id="program">
+
+    <div class="section-head">
+
+        <span>Program Pendidikan</span>
+
+        <h2>Belajar, Bertumbuh & Berkarya</h2>
+
+        <p>
+            Program pendidikan dirancang untuk membentuk
+            santri yang berilmu dan memiliki karakter kuat.
+        </p>
+
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+
+            <div class="icon">📖</div>
+
+            <h3>Tahfidz Al-Qur'an</h3>
+
+            <p>
+                Program menghafal dan memahami Al-Qur'an
+                dengan pembinaan yang terarah.
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <div class="icon">🕌</div>
+
+            <h3>Kajian Keislaman</h3>
+
+            <p>
+                Pembelajaran Al-Qur'an, Hadits, Akidah,
+                Fiqih, Akhlak dan ilmu keislaman.
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <div class="icon">🌐</div>
+
+            <h3>Bahasa Arab</h3>
+
+            <p>
+                Pembelajaran Bahasa Arab sebagai sarana
+                memahami sumber-sumber ilmu Islam.
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <div class="icon">🎓</div>
+
+            <h3>Pendidikan Formal</h3>
+
+            <p>
+                Mendukung pendidikan akademik dan
+                pengembangan kemampuan santri.
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <div class="icon">⚽</div>
+
+            <h3>Ekstrakurikuler</h3>
+
+            <p>
+                Berbagai kegiatan untuk mengembangkan
+                bakat, kreativitas, dan kerja sama.
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <div class="icon">🌱</div>
+
+            <h3>Kemandirian</h3>
+
+            <p>
+                Membentuk santri yang disiplin, bertanggung
+                jawab, dan mampu hidup mandiri.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FASILITAS ================= -->
+
+<section id="fasilitas">
+
+    <div class="section-head">
+
+        <span>Fasilitas</span>
+
+        <h2>Lingkungan yang Mendukung</h2>
+
+        <p>
+            Fasilitas yang mendukung kegiatan pendidikan
+            dan kehidupan santri.
+        </p>
+
+    </div>
+
+    <div class="facilities">
+
+        <div class="facility">
+            <div class="facility-icon">🕌</div>
+            <h3>Masjid</h3>
+        </div>
+
+        <div class="facility">
+            <div class="facility-icon">🏠</div>
+            <h3>Asrama Santri</h3>
+        </div>
+
+        <div class="facility">
+            <div class="facility-icon">📚</div>
+            <h3>Perpustakaan</h3>
+        </div>
+
+        <div class="facility">
+            <div class="facility-icon">🏫</div>
+            <h3>Ruang Kelas</h3>
+        </div>
+
+        <div class="facility">
+            <div class="facility-icon">⚽</div>
+            <h3>Lapangan</h3>
+        </div>
+
+        <div class="facility">
+            <div class="facility-icon">🍽️</div>
+            <h3>Dapur</h3>
+        </div>
+
+        <div class="facility">
+            <div class="facility-icon">💻</div>
+            <h3>Ruang Komputer</h3>
+        </div>
+
+        <div class="facility">
+            <div class="facility-icon">🌳</div>
+            <h3>Area Terbuka</h3>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= GALERI ================= -->
+
+<section id="galeri">
+
+    <div class="section-head">
+
+        <span>Dokumentasi</span>
+
+        <h2>Galeri Kegiatan</h2>
+
+        <p>
+            Dokumentasi aktivitas dan kehidupan santri
+            di Pondok Pesantren Al Barokah Merapi.
+        </p>
+
+    </div>
+
+    <div class="gallery">
+
+        <div class="gallery-item">🕌</div>
+        <div class="gallery-item">📖</div>
+        <div class="gallery-item">🎓</div>
+        <div class="gallery-item">🌙</div>
+        <div class="gallery-item">👨‍🎓</div>
+        <div class="gallery-item">⚽</div>
+        <div class="gallery-item">🌱</div>
+        <div class="gallery-item">📚</div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= BERITA ================= -->
+
+<section>
+
+    <div class="section-head">
+
+        <span>Informasi</span>
+
+        <h2>Berita & Kegiatan</h2>
+
+        <p>
+            Informasi terbaru seputar kegiatan pondok.
+        </p>
+
+    </div>
+
+    <div class="news">
+
+        <div class="news-card">
+
+            <div class="news-image">📚</div>
+
+            <div class="news-content">
+
+                <small>KEGIATAN</small>
+
+                <h3>Kegiatan Belajar Santri</h3>
+
+                <p>
+                    Aktivitas pembelajaran menjadi bagian
+                    penting dalam kehidupan santri setiap hari.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="news-card">
+
+            <div class="news-image">🕌</div>
+
+            <div class="news-content">
+
+                <small>KEAGAMAAN</small>
+
+                <h3>Kajian Keislaman</h3>
+
+                <p>
+                    Kajian rutin sebagai sarana meningkatkan
+                    pemahaman ilmu agama para santri.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="news-card">
+
+            <div class="news-image">🎓</div>
+
+            <div class="news-content">
+
+                <small>PENDIDIKAN</small>
+
+                <h3>Penerimaan Santri Baru</h3>
+
+                <p>
+                    Informasi penerimaan santri baru
+                    Pondok Pesantren Al Barokah Merapi.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= PENDAFTARAN ================= -->
+
+<section id="pendaftaran">
+
+    <div class="register">
+
+        <div>
+
+            <h2>Siap Menjadi Bagian dari Al Barokah?</h2>
+
+            <p>
+                Bergabunglah bersama keluarga besar Pondok
+                Pesantren Al Barokah Merapi dan tumbuh bersama
+                dalam lingkungan pendidikan Islam.
+            </p>
+
+        </div>
+
+        <a
+        class="btn btn-primary"
+        href="https://wa.me/6281234567890?text=Assalamu%27alaikum%2C%20saya%20ingin%20mendapatkan%20informasi%20pendaftaran%20santri%20baru."
+        target="_blank">
+
+            Daftar Sekarang →
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- ================= KONTAK ================= -->
+
+<section id="kontak">
+
+    <div class="section-head">
+
+        <span>Hubungi Kami</span>
+
+        <h2>Informasi & Kontak</h2>
+
+        <p>
+            Silakan hubungi kami untuk mendapatkan
+            informasi lebih lanjut.
+        </p>
+
+    </div>
+
+    <div class="contact">
+
+        <div class="contact-info">
+
+            <div class="contact-item">
+
+                <div>📍</div>
+
+                <div>
+                    <b>Alamat</b>
+                    <p>
+                        Pondok Pesantren Al Barokah Merapi,
+                        Indonesia
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="contact-item">
+
+                <div>📱</div>
+
+                <div>
+                    <b>WhatsApp</b>
+                    <p>+62 812-3456-7890</p>
+                </div>
+
+            </div>
+
+            <div class="contact-item">
+
+                <div>📧</div>
+
+                <div>
+                    <b>Email</b>
+                    <p>info@albarokahmerapi.com</p>
+                </div>
+
+            </div>
+
+            <div class="contact-item">
+
+                <div>📸</div>
+
+                <div>
+                    <b>Instagram</b>
+                    <p>@albarokahmerapi</p>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <form class="contact-form" onsubmit="sendMessage(event)">
+
+            <input
+            type="text"
+            id="nama"
+            placeholder="Nama Anda"
+            required>
+
+            <input
+            type="text"
+            id="subjek"
+            placeholder="Subjek"
+            required>
+
+            <textarea
+            id="pesan"
+            placeholder="Tulis pesan..."
+            required></textarea>
+
+            <button class="btn btn-primary">
+                Kirim ke WhatsApp →
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="footer-top">
+
+        <div>
+
+            <h3>Al Barokah Merapi</h3>
+
+            <p>
+                Pondok Pesantren yang berkomitmen membangun
+                generasi berilmu, berakhlak, mandiri,
+                dan dekat dengan Al-Qur'an.
+            </p>
+
+        </div>
+
+        <div>
+
+            <h3>Menu</h3>
+
+            <ul>
+
+                <li><a href="#home">Beranda</a></li>
+                <li><a href="#profil">Profil</a></li>
+                <li><a href="#program">Program</a></li>
+                <li><a href="#galeri">Galeri</a></li>
+
+            </ul>
+
+        </div>
+
+        <div>
+
+            <h3>Informasi</h3>
+
+            <ul>
+
+                <li><a href="#pendaftaran">Pendaftaran</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+                <li><a href="#">Kebijakan</a></li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+
+        © 2026 Pondok Pesantren Al Barokah Merapi.
+        Semua Hak Dilindungi.
+
+    </div>
+
+</footer>
+
+
+<!-- ================= WHATSAPP ================= -->
+
+<a
+class="wa"
+href="https://wa.me/6281234567890"
+target="_blank"
+title="Hubungi WhatsApp">
+
+    ☎
+
+</a>
+
+
+<script>
+
+/* NAVBAR */
+
+window.addEventListener("scroll",function(){
+
+    const navbar =
+    document.getElementById("navbar");
+
+    if(window.scrollY > 50){
+        navbar.classList.add("scrolled");
+    }else{
+        navbar.classList.remove("scrolled");
+    }
+
+});
+
+
+/* MOBILE MENU */
+
+function toggleMenu(){
+
+    document
+    .getElementById("navLinks")
+    .classList.toggle("active");
+
+}
+
+
+/* CLOSE MENU */
+
+document
+.querySelectorAll(".nav-links a")
+.forEach(link => {
+
+    link.addEventListener("click",function(){
+
+        document
+        .getElementById("navLinks")
+        .classList.remove("active");
+
+    });
+
+});
+
+
+/* WHATSAPP FORM */
+
+function sendMessage(event){
+
+    event.preventDefault();
+
+    const nama =
+    document.getElementById("nama").value;
+
+    const subjek =
+    document.getElementById("subjek").value;
+
+    const pesan =
+    document.getElementById("pesan").value;
+
+    const nomor =
+    "6281234567890";
+
+    const text =
+    `Assalamu'alaikum.
+
+Nama: ${nama}
+
+Subjek: ${subjek}
+
+Pesan:
+${pesan}`;
+
+    const url =
+    "https://wa.me/" +
+    nomor +
+    "?text=" +
+    encodeURIComponent(text);
+
+    window.open(url,"_blank");
+
+}
+
+</script>
+
+</body>
+</html>
+```
