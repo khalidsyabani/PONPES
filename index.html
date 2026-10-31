@@ -75,6 +75,14 @@ nav.scrolled .logo{
     font-size:21px;
 }
 
+.logo-img{
+    width:48px;
+    height:48px;
+    object-fit:contain;
+    display:block;
+    flex-shrink:0;
+}
+
 .logo-text strong{
     display:block;
     font-size:17px;
@@ -467,94 +475,20 @@ section{
     gap:15px;
 }
 
-.gallery-item{
+.gallery:empty{display:none;}
+.gallery-section:has(.gallery:empty){display:none;}
+
+.gallery-photo{
+    width:100%;
     height:220px;
+    display:block;
+    object-fit:cover;
     border-radius:18px;
-    background:linear-gradient(135deg,#214d41,#80978e);
-    position:relative;
-    overflow:hidden;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    color:white;
-    font-size:45px;
     transition:.3s;
+    cursor:pointer;
 }
 
-.gallery-item:nth-child(2){
-    background:linear-gradient(135deg,#7a6331,#d0b768);
-}
-
-.gallery-item:nth-child(3){
-    background:linear-gradient(135deg,#244c62,#8aa9b8);
-}
-
-.gallery-item:nth-child(4){
-    background:linear-gradient(135deg,#493d62,#9b8bb4);
-}
-
-.gallery-item:nth-child(5){
-    background:linear-gradient(135deg,#5b4730,#b49469);
-}
-
-.gallery-item:nth-child(6){
-    background:linear-gradient(135deg,#28594b,#82a898);
-}
-
-.gallery-item:nth-child(7){
-    background:linear-gradient(135deg,#4d3b31,#b68b70);
-}
-
-.gallery-item:nth-child(8){
-    background:linear-gradient(135deg,#283f57,#7192af);
-}
-
-.gallery-item:hover{
-    transform:scale(1.025);
-}
-
-/* BERITA */
-
-.news{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:22px;
-}
-
-.news-card{
-    background:white;
-    border-radius:20px;
-    overflow:hidden;
-    box-shadow:0 8px 30px rgba(0,0,0,.06);
-}
-
-.news-image{
-    height:180px;
-    background:linear-gradient(135deg,#183f35,#8ca99e);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:45px;
-}
-
-.news-content{
-    padding:24px;
-}
-
-.news-content small{
-    color:#b38b29;
-    font-weight:bold;
-}
-
-.news-content h3{
-    margin:10px 0;
-}
-
-.news-content p{
-    color:#71807b;
-    line-height:1.6;
-    font-size:14px;
-}
+.gallery-photo:hover{transform:scale(1.025);}
 
 /* PENDAFTARAN */
 
@@ -782,10 +716,6 @@ footer a{
         grid-template-columns:repeat(2,1fr);
     }
 
-    .news{
-        grid-template-columns:1fr;
-    }
-
     .register{
         flex-direction:column;
         align-items:flex-start;
@@ -846,7 +776,7 @@ footer a{
         grid-template-columns:1fr 1fr;
     }
 
-    .gallery-item{
+    .gallery-photo{
         height:160px;
     }
 
@@ -868,7 +798,7 @@ footer a{
 <nav id="navbar">
 
     <a href="#home" class="logo">
-        <div class="logo-icon">☪</div>
+        <img src="logo1.png" alt="Logo Al Barokah" class="logo-img">
         <div class="logo-text">
             <strong>Al Barokah</strong>
             <small>Merapi</small>
@@ -1145,7 +1075,7 @@ footer a{
 
 <!-- GALERI -->
 
-<section id="galeri">
+<section id="galeri" class="gallery-section">
 
     <div class="section-head">
         <span>Dokumentasi</span>
@@ -1156,70 +1086,7 @@ footer a{
         </p>
     </div>
 
-    <div class="gallery">
-
-        <div class="gallery-item">🕌</div>
-        <div class="gallery-item">📖</div>
-        <div class="gallery-item">🎓</div>
-        <div class="gallery-item">🌙</div>
-        <div class="gallery-item">👨‍🎓</div>
-        <div class="gallery-item">⚽</div>
-        <div class="gallery-item">🌱</div>
-        <div class="gallery-item">📚</div>
-
-    </div>
-
-</section>
-
-<!-- BERITA -->
-
-<section>
-
-    <div class="section-head">
-        <span>Informasi</span>
-        <h2>Berita & Kegiatan</h2>
-        <p>Informasi terbaru seputar kegiatan pondok.</p>
-    </div>
-
-    <div class="news">
-
-        <div class="news-card">
-            <div class="news-image">📚</div>
-            <div class="news-content">
-                <small>KEGIATAN</small>
-                <h3>Kegiatan Belajar Santri</h3>
-                <p>
-                    Aktivitas pembelajaran menjadi bagian
-                    penting dalam kehidupan santri setiap hari.
-                </p>
-            </div>
-        </div>
-
-        <div class="news-card">
-            <div class="news-image">🕌</div>
-            <div class="news-content">
-                <small>KEAGAMAAN</small>
-                <h3>Kajian Keislaman</h3>
-                <p>
-                    Kajian rutin sebagai sarana meningkatkan
-                    pemahaman ilmu agama para santri.
-                </p>
-            </div>
-        </div>
-
-        <div class="news-card">
-            <div class="news-image">🎓</div>
-            <div class="news-content">
-                <small>PENDIDIKAN</small>
-                <h3>Penerimaan Santri Baru</h3>
-                <p>
-                    Informasi penerimaan santri baru
-                    Pondok Pesantren Al Barokah Merapi.
-                </p>
-            </div>
-        </div>
-
-    </div>
+    <div class="gallery" id="galleryGrid"></div>
 
 </section>
 
@@ -1372,6 +1239,24 @@ title="Hubungi WhatsApp">
 </a>
 
 <script>
+
+/* GALERI OTOMATIS: hanya foto yang tersedia yang akan ditampilkan */
+(function loadGallery(){
+    const gallery = document.getElementById("galleryGrid");
+    if(!gallery) return;
+
+    for(let i = 1; i <= 10; i++){
+        const image = new Image();
+        image.onload = function(){
+            image.alt = `Dokumentasi Pondok Al Barokah ${i}`;
+            image.className = "gallery-photo";
+            image.loading = "lazy";
+            gallery.appendChild(image);
+        };
+        image.onerror = function(){};
+        image.src = `galeri${i}.jpg`;
+    }
+})();
 
 /* NAVBAR */
 
